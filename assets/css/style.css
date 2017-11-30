@@ -1,0 +1,15 @@
+/*
+* @Author: Administrator
+* @Date:   2017-11-10 15:04:40
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-11-10 15:20:23
+*/
+body,
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6,
+div,p,a
+{
+font-family: -apple-system,"Lucida Grande","Helvetica Neue",Helvetica, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue","Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei","Hiragino Sans GB","Microsoft Yahei New","Microsoft Yahei","STHeiti Light", sans-serif;
+}
+.container{
+    margin-top:1em;
+}

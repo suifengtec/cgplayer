@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1">
+    <title>CgPlayer</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/cgplayer/cgplayer.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+               <h2>CgPlayer</h2>
+            <div id="id_test_video" style="width:100%; height:auto;margin-top:2em"></div>
+        </div>
+    </div>
+</div>
+
+
+<script src="assets/cgplayer/hls.min.js"></script>
+<script src="assets/cgplayer/cgplayer.min.js"></script>
+<script>
+var w = Math.min(document.documentElement.clientWidth*0.8, window.innerWidth*0.7 || 0);
+var h = Math.min(document.documentElement.clientHeight*0.8, window.innerHeight*0.7 || 0);
+
+/*通过上级的AJAX调用生成*/
+var dmStr =  "\u738b\u5c3c\u739b \u8eab\u4efd\u8bc1\u53f7:123456789012345678d";
+var Cgp = new CgPlayer({
+
+    container: document.getElementById("id_test_video"),
+    /*是否自动播放*/
+     autoplay:  true,
+     /*键盘上的方向键:上下=音量,左右=快进快退*/
+     hotkey:true,
+    /*默认音量*/
+    volume: 0.7,
+    /*可选:以分钟为单位的视频长度*/
+    duration:6,
+    theme: '#FADFA3',
+    /*固定值: false*/
+    screenshot: false,
+    /*固定值:true*/
+    mutex: true,
+    /*左上角的logo的URL*/
+      logo: 'assets/imgs/logo.png',
+    video: {
+          pic: 'http://devtest.qiniudn.com/若能绽放光芒.png',
+        quality: [ {
+            name: '我的梦',
+            url:  "http://ckplayer-video.oss-cn-shanghai.aliyuncs.com/ckplayer-sample/mydream_zh_768-432.mp4",
+            type: 'normal'
+        },{
+            name:'不知道啥',
+            url: 'http://devtest.qiniudn.com/若能绽放光芒.mp4',
+            type: 'normal'
+        }/*,{
+            name: '超清',
+            url:  "http://demo.com/demo/playlist_1.m3u8",
+            type: 'hls'
+        },{
+            name: '高清',
+            url:  "http://demo.com/demo/playlist_2.m3u8",
+            type: 'hls'
+        }*/],
+        defaultQuality: 0
+    },
+     danmaku: {
+        /*id为data时,需提供dmData, api可省略*/
+        id: 'data',
+     /*   api: 'http://demo.com/playerui/demo/GetDanMu.php?id=demo',*/
+        dmData: dmStr,
+        color:"#45BDFF",
+        opacity:0.5
+    },
+    contextmenu: [{
+            text: '自定义的菜单',
+            link: 'http://coolwp.com'
+        }
+    ]
+});
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+</body>
+</html>
